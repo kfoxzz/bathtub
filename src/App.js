@@ -1,24 +1,22 @@
-import logo from './logo.svg';
+import React from 'react';
 import './App.css';
+import Bathtub from './components/Bathtub';
+import Buttons from './components/Buttons';
+import BathtubBackground from './components/BathtubBackground';
+import { Container, Row, Col } from 'react-bootstrap';
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Container>
+      <Row className="text-center">
+        <Col>
+          <h1 className="display-1">Interactive Bathtub</h1>
+        </Col>
+      </Row>
+      <BathtubBackground />
+      <Bathtub />
+      <Buttons />
+    </Container>
   );
 }
 
