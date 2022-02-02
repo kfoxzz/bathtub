@@ -7,6 +7,10 @@
   color: white;
 }
 
+.button-container {
+  padding-top: 100px;
+}
+
 .background-image {
   background-image: url('../public/bathtub.png');
   height: 500px;
@@ -23,7 +27,12 @@
   height: 20px;
   background-color: dodgerblue;
   margin-left: 10px;
-  /* border: 1px red solid; */
+  opacity: 1;
+}
+
+.message {
+  color: red;
+  font-weight: 700;
 }
 
 .spacing-div {

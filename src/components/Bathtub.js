@@ -1,27 +1,19 @@
-import React from 'react';
-import BathtubBackground from './BathtubBackground';
+import React, { useState } from 'react';
 import { Row, Col } from 'react-bootstrap';
+import { Animated } from 'react-animated-css';
 
-function Bathtub(props) {
+function Bathtub({ sections, opacityArray }) {
   return (
     <Row>
       <Col>
         <div className="spacing-div"></div>
-        <Row className="water-container mx-auto">
-          <div className="water-div"></div>
-        </Row>
-        <Row className="water-container mx-auto">
-          <div className="water-div"></div>
-        </Row>
-        <Row className="water-container mx-auto">
-          <div className="water-div"></div>
-        </Row>
-        <Row className="water-container mx-auto">
-          <div className="water-div"></div>
-        </Row>
-        <Row className="water-container mx-auto">
-          <div className="water-div"></div>
-        </Row>
+        {sections.map(section => {
+          return (
+            <Row className="water-container mx-auto" key={section} style={{ opacity: opacityArray[section] }}>
+              <div className="water-div"></div>
+            </Row>
+          );
+        })}
       </Col>
     </Row>
   );

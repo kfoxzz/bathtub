@@ -2,21 +2,15 @@ import React from 'react';
 import Button from './Button';
 import { Row, Col } from 'react-bootstrap';
 
-function Buttons() {
-  const increaseWaterLevel = () => {
-    console.log('filling bathtub');
-  };
-
-  const decreaseWaterLevel = () => {
-    console.log('emptying bathtub');
-  };
+function Buttons(props) {
+  const { increaseWaterLevel, decreaseWaterLevel } = props;
 
   return (
-    <Row className="pt-5">
-      <Col className="d-flex justify-content-center text-center">
+    <Row className="button-container">
+      <Col className="d-flex justify-content-end">
         <Button title="Increase Water Level" onClick={increaseWaterLevel} />
       </Col>
-      <Col className="d-flex justify-content-center text-center">
+      <Col className="d-flex justify-content-start">
         <Button title="Decrease Water Level" onClick={decreaseWaterLevel} />
       </Col>
     </Row>
