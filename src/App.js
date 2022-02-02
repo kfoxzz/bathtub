@@ -12,7 +12,10 @@ function App() {
   const [waterState, setWaterState] = useState(null);
   const [busy, setBusy] = useState(false);
 
-  const sections = [0, 1, 2, 3, 4];
+  const setWaterConfig = (opacity, waterLevel) => {
+    setOpacityArray(opacity);
+    setWaterLevel(waterLevel);
+  };
 
   const increaseWaterLevel = () => {
     if (waterLevel === 100) {
@@ -30,24 +33,19 @@ function App() {
         setTimeout(() => {
           switch (i) {
             case 0:
-              setOpacityArray([0, 0, 0, 0, 1]);
-              setWaterLevel(20);
+              setWaterConfig([0, 0, 0, 0, 1], 20);
               break;
             case 1:
-              setOpacityArray([0, 0, 0, 1, 1]);
-              setWaterLevel(40);
+              setWaterConfig([0, 0, 0, 1, 1], 40);
               break;
             case 2:
-              setOpacityArray([0, 0, 1, 1, 1]);
-              setWaterLevel(60);
+              setWaterConfig([0, 0, 1, 1, 1], 60);
               break;
             case 3:
-              setOpacityArray([0, 1, 1, 1, 1]);
-              setWaterLevel(80);
+              setWaterConfig([0, 1, 1, 1, 1], 80);
               break;
             case 4:
-              setOpacityArray([1, 1, 1, 1, 1]);
-              setWaterLevel(100);
+              setWaterConfig([1, 1, 1, 1, 1], 100);
               setWaterState('Bathtub is now full!');
               setBusy(false);
               break;
@@ -73,24 +71,19 @@ function App() {
         setTimeout(() => {
           switch (i) {
             case 0:
-              setOpacityArray([0, 1, 1, 1, 1]);
-              setWaterLevel(80);
+              setWaterConfig([0, 1, 1, 1, 1], 80);
               break;
             case 1:
-              setOpacityArray([0, 0, 1, 1, 1]);
-              setWaterLevel(60);
+              setWaterConfig([0, 0, 1, 1, 1], 60);
               break;
             case 2:
-              setOpacityArray([0, 0, 0, 1, 1]);
-              setWaterLevel(40);
+              setWaterConfig([0, 0, 0, 1, 1], 40);
               break;
             case 3:
-              setOpacityArray([0, 0, 0, 0, 1]);
-              setWaterLevel(20);
+              setWaterConfig([0, 0, 0, 0, 1], 20);
               break;
             case 4:
-              setOpacityArray([0, 0, 0, 0, 0]);
-              setWaterLevel(0);
+              setWaterConfig([0, 0, 0, 0, 0], 0);
               setWaterState('Bathtub is now empty!');
               setBusy(false);
               break;
@@ -102,13 +95,18 @@ function App() {
 
   return (
     <Container>
-      <Row className="text-center">
+      <Row className="text-center py-3">
         <Col>
-          <h1 className="display-1">Interactive Bathtub</h1>
+          <a href="https://www.flaticon.com/free-icons/bath" title="bath icons">
+            Bath icons created by Payungkead - Flaticon
+          </a>
+          <hr />
+          <h1 className="display-1">🛁 Interactive Bathtub 🛁</h1>
+          <hr />
         </Col>
       </Row>
       <BathtubBackground />
-      <Bathtub opacityArray={opacityArray} sections={sections} />
+      <Bathtub opacityArray={opacityArray} />
       <Buttons increaseWaterLevel={increaseWaterLevel} decreaseWaterLevel={decreaseWaterLevel} />
       <WaterLevel waterLevel={waterLevel} waterState={waterState} />
     </Container>
